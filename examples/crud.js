@@ -1,4 +1,4 @@
-import { createCustomer, getCustomers, getCustomersById} from './Customer.js'
+import { createCustomer, getCustomers, getCustomersById} from './customer.js'
 // query customers data
 getCustomers().then(data=> {
     log(data);
