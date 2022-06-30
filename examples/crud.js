@@ -1,4 +1,4 @@
-import { createCustomer, deleteCustomerById, getCustomers, getCustomersById, updateCustomerEmail } from './customer.js'
+import { createCustomer, deleteCustomerById, getCustomers, getCustomersById, updateCustomerEmail } from '../src/customer.js'
 import { log } from "../logger.js";
 
 // uncomment piece of below code to test the operations, customer id can be retrived from query customer api

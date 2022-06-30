@@ -1,4 +1,4 @@
-import { apiRoot, projectKey } from "../src/Client.js";
+import { apiRoot, projectKey } from "./client.js";
 
 // https://docs.commercetools.com/api/projects/customers#customerdraft
 const createCustomerDraft = (customer) => {
