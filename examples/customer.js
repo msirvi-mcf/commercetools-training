@@ -1,5 +1,6 @@
 import { apiRoot, projectKey } from "../src/Client.js";
 
+// https://docs.commercetools.com/api/projects/customers#customerdraft
 const createCustomerDraft = (customer) => {
     const {
         firstName,
@@ -23,6 +24,7 @@ const createCustomerDraft = (customer) => {
         ]
     }
 }
+// https://docs.commercetools.com/api/projects/customers#change-email
 const createCustomerEmailUpdateDraft = (email, customer) => {
     return {
         "version": customer.body.version,
@@ -44,18 +46,17 @@ export const createCustomer = (customer) => {
         .execute();
 }
 
-export const updateCustomerEmail = (email, ID) => {
+export const updateCustomerEmail = async (email, ID) => {
 
-    return getCustomersById(ID).then(customer => {
-        return apiRoot
-            .withProjectKey({ projectKey })
-            .customers()
-            .withId({ ID })
-            .post({
-                body: createCustomerEmailUpdateDraft(email, customer)
-            })
-            .execute();
-    })
+    const customer = await getCustomersById(ID);
+    return await apiRoot
+        .withProjectKey({ projectKey })
+        .customers()
+        .withId({ ID })
+        .post({
+            body: createCustomerEmailUpdateDraft(email, customer)
+        })
+        .execute();
 
 }
 export const getCustomers = () => {
@@ -80,5 +81,19 @@ export const getCustomersById = (ID) => {
         .customers()
         .withId({ ID })
         .get()
+        .execute();
+}
+// https://docs.commercetools.com/api/projects/customers#delete-customer
+export const deleteCustomerById = async (ID) => {
+    const customer = await getCustomersById(ID);
+    return await apiRoot
+        .withProjectKey({ projectKey })
+        .customers()
+        .withId({ ID })
+        .delete({
+            queryArgs: {
+                version: customer.body.version
+            }
+        })
         .execute();
 }
