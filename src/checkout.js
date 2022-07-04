@@ -5,7 +5,7 @@ export const customerSignin = (userDetails) => {
         .withProjectKey({ projectKey })
         .login()
         .post({
-            body: customerDetails
+            body: userDetails
         })
         .execute();
 }
