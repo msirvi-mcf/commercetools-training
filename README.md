@@ -12,11 +12,11 @@
 
 * Resource Life Cycle
 
-* Introduction to the SDK being used in the course 
+* Introduction to the SDK being used in the course :white_check_mark:
 
-* CRUD operations on resources
+* CRUD operations on resources :white_check_mark:
 
-* Authorization flows
+* Authorization flows :white_check_mark:
 
 * Products and Resource Synchronization 
 
@@ -28,21 +28,21 @@
 
 * Project synchronization
 
-* Carts, Orders and Checkout
+* Carts, Orders and Checkout :white_check_mark:
 
-* Checkout and order creation
+* Checkout and order creation :white_check_mark:
 
 * Channels, inventory information and state machines for implementation of business requirements and workflows
 
-* Product and cart discounts
+* Product and cart discounts :white_check_mark:
 
-* commercetools payment API
+* commercetools payment API :white_check_mark:
 
-* Store Management and “me” API authorization
+* Store Management and “me” API authorization :white_check_mark:
 
 * Store-based cart management 
 
-* “Me” endpoints for access from SPAs and native mobile apps
+* “Me” endpoints for access from SPAs and native mobile apps :white_check_mark:
 
 * Search, Queries and Bulk Download  
 
