@@ -1,4 +1,5 @@
 import { createClient, createAuthForClientCredentialsFlow, createHttpClient, ClientBuilder } from '@commercetools/sdk-client-v2';
+import { createApiBuilderFromCtpClient as createImportApiBuilderFromCtpClient } from '@commercetools/importapi-sdk';
 import { createApiBuilderFromCtpClient } from '@commercetools/platform-sdk';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -75,8 +76,31 @@ const anonymousClient = () => {
         .build();
     return client;
 }
+
+const importClient = () => {
+    const importAuthMiddlewareOptions = {
+        host: process.env.CTP_IMPORT_AUTH_URL,
+        projectKey,
+        credentials: {
+            clientId: process.env.CTP_CLIENT_ID,
+            clientSecret: process.env.CTP_CLIENT_SECRET
+        },
+        fetch
+    };
+    console.log(process.env.CTP_IMPORT_API_URL);
+    const importHttpMiddlewareOptions = {
+        host: process.env.CTP_IMPORT_API_URL,
+        fetch,
+    };
+    const client = new ClientBuilder()
+    .withClientCredentialsFlow(importAuthMiddlewareOptions)
+    .withHttpMiddleware(importHttpMiddlewareOptions)
+    .build();
+    return client;
+}
 export const apiRoot = createApiBuilderFromCtpClient(getClient());
 export const meApiRoot = createApiBuilderFromCtpClient(meClient());
 export const anonymousApiRoot = createApiBuilderFromCtpClient(anonymousClient());
+export const importApiRoot = createImportApiBuilderFromCtpClient(importClient());
 const _projectKey = projectKey;
 export { _projectKey as projectKey };

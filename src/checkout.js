@@ -117,6 +117,7 @@ export const addPaymentToCart = async (cartId, paymentId) => {
     })
 }
 export const createOrderFromCart = async (cartId) => {
+    const order = await apiRoot.withProjectKey({projectKey}).orders().get().execute();
     return getCartById(cartId).then((cart) => {
         return apiRoot
             .withProjectKey({ projectKey })
@@ -125,6 +126,7 @@ export const createOrderFromCart = async (cartId) => {
                 body: {
                     id: cartId,
                     version: cart.body.version,
+                    orderNumber: "OR-"+ (order.body.total+1)
                 }
             })
             .execute();

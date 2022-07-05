@@ -70,7 +70,7 @@ const checkoutFlow = async () => {
     let order = await createOrderFromCart(cartWithItems.body.id);
     // order = await changeOrderState(order.body.id, "Confirmed");
     if (order) {
-        console.log("order success");
+        console.log("order success : "+order.body.id);
     }
     return order;
 }
