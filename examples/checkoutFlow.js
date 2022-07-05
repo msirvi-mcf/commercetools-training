@@ -45,7 +45,6 @@ const paymentDraft =
 const checkoutFlow = async () => {
     // First create a anonymous cart or login customer 
     let cart = await createCart(customerId);
-    // console.log(cart);
     // Add products to cart 
     let cartWithItems = await addLineItemToCart(cart.body.id, sku);
 
@@ -57,7 +56,6 @@ const checkoutFlow = async () => {
 
     //  get available shipping method
     const shippingMethod = await getShippingMethodForCart(cart.body.id);
-    // console.log(shippingMethod.body.results[0].id);
 
     // add shipping to cart
     cartWithItems = await setShippingMethod(cart.body.id, shippingMethod.body.results[0].id);
@@ -65,16 +63,15 @@ const checkoutFlow = async () => {
     // create payment
     // add payment to cart
     const payment = await createPayment(paymentDraft);
-    // console.log(payment);
+ 
     cartWithItems = await addPaymentToCart(cartWithItems.body.id, payment.body.id);
 
     // create order from cart and set state to confirmed
     let order = await createOrderFromCart(cartWithItems.body.id);
-    order = await changeOrderState(order.body.id, "Confirmed");
+    // order = await changeOrderState(order.body.id, "Confirmed");
     if (order) {
-        log({
-            message: "order created succesfully"
-        });
+        console.log("order success");
     }
+    return order;
 }
-checkoutFlow().then(data => log(data)).catch(data => log(data));
+checkoutFlow();

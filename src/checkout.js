@@ -52,7 +52,7 @@ export const addDiscountCode = async (cartId, discountCode) => {
     })
 }
 export const addLineItemToCart = async (cartId, sku) => {
-    getCartById(cartId).then((cart) => {
+    return getCartById(cartId).then((cart) => {
         return apiRoot
             .withProjectKey({ projectKey })
             .carts()
@@ -71,7 +71,7 @@ export const addLineItemToCart = async (cartId, sku) => {
 }
 
 export const recalculateCart = async (cartId) => {
-    getCartById(cartId).then((cart) => {
+    return getCartById(cartId).then((cart) => {
         return apiRoot
             .withProjectKey({ projectKey })
             .carts()
@@ -98,10 +98,10 @@ export const getShippingMethodForCart = async (cartId) => {
         .execute();
 }
 export const setShippingMethod = async (cartId, shippingMethodId) => {
-    getCartById(cartId).then((cart) => {
+    return getCartById(cartId).then((cart) => {
         return apiRoot
             .withProjectKey({ projectKey })
-            .shippingMethods()
+            .carts()
             .withId({ ID: cartId })
             .post({
                 body: {
@@ -122,7 +122,7 @@ export const addPaymentToCart = async (cartId, paymentId) => {
     return getCartById(cartId).then((cart) => {
         return apiRoot
             .withProjectKey({ projectKey })
-            .cart()
+            .carts()
             .withId({ ID: cartId })
             .post({
                 body: {
@@ -163,19 +163,21 @@ export const getOrderById = (orderId) => {
 }
 
 export const changeOrderState = async (orderId, stateName) => {
-    const order = await getOrderById(orderId);
-    return apiRoot
-        .withProjectKey({ projectKey })
-        .orders()
-        .withId({ orderId })
-        .post({
-            body: {
-                version: order.body.version,
-                actions: [{
-                    action: "changeOrderState",
-                    orderState: stateName
-                }]
-            }
-        })
-        .execute();
+    return getOrderById(orderId).then((order) => {
+        return apiRoot
+            .withProjectKey({ projectKey })
+            .orders()
+            .withId({ orderId })
+            .post({
+                body: {
+                    version: order.body.version,
+                    actions: [{
+                        action: "changeOrderState",
+                        orderState: stateName
+                    }]
+                }
+            })
+            .execute();
+    });
+
 }
