@@ -24,7 +24,7 @@
 
 * Product and project synchronization
 
-* Import API
+* Import API :white_check_mark:
 
 * Project synchronization
 
@@ -46,19 +46,19 @@
 
 * Search, Queries and Bulk Download  
 
-* Product search
+* Product search :white_check_mark:
 
 * Bulk export optimization
 
 * commercetools GraphQL
 
-* Extending commercetools
+* Extending commercetools :white_check_mark:
 
-* API extensions and message subscriptions
+* API extensions and message subscriptions :white_check_mark:
 
-* Custom types
+* Custom types :white_check_mark:
 
-* Custom objects
+* Custom objects :white_check_mark:
 
 * Optional Topics
 
