@@ -1,4 +1,4 @@
-[
+const products = [
     {
         "id": "6f802eea-762f-4100-9e03-3f75105c30f6",
         "version": 19,
@@ -7831,3 +7831,4 @@
         "lastModifiedAt": "2022-07-05T09:24:20.843Z"
     }
 ]
+export default products;

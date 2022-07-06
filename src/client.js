@@ -87,7 +87,6 @@ const importClient = () => {
         },
         fetch
     };
-    console.log(process.env.CTP_IMPORT_API_URL);
     const importHttpMiddlewareOptions = {
         host: process.env.CTP_IMPORT_API_URL,
         fetch,
