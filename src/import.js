@@ -1,6 +1,6 @@
 import { importApiRoot, projectKey } from "./client.js";
 import { log } from '../logger.js';
-import products from "./products.js";
+import products from "../data/products.js";
 export const createImportContainer = (key) => {
     return importApiRoot
         .withProjectKeyValue({ projectKey })
