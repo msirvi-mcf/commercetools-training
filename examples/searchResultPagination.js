@@ -11,4 +11,4 @@ const resultPage = async (searchKeyword, page) => {
 
 const searchKeyword = "scarf";
 const page = 3;
-resultPage(searchKeyword, page).then(result => console.log(result)).catch(error => log(error));
+resultPage(searchKeyword, page).then(products => products.body.results.map((product)=> log(product.name.en))).catch(error => log(error));
