@@ -1,3 +1,4 @@
+// This file is exported from commercetools as an example, this can be any product file, map accordingly
 const products = [
     {
         "id": "6f802eea-762f-4100-9e03-3f75105c30f6",

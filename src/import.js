@@ -1,7 +1,7 @@
 import { importApiRoot, projectKey } from "./client.js";
 import { log } from '../logger.js';
 import products from "../data/products.js";
-export const createImportContainer = (key) => {
+export const createImportContainer =async (key) => {
     return importApiRoot
         .withProjectKeyValue({ projectKey })
         .importContainers()
@@ -11,6 +11,15 @@ export const createImportContainer = (key) => {
             }
         })
         .execute();
+}
+
+export const getContainerByKey = (key) => {
+    return importApiRoot
+    .withProjectKeyValue({projectKey})
+    .importContainers()
+    .withImportContainerKeyValue({key:key})
+    .get()
+    .execute();
 }
 
 export const importProducts = async (key) => {
@@ -34,22 +43,22 @@ const createResourceDraft = async () => {
     let resources = [];
     products.forEach((product) => {
         let resource = {
-            key: product.name,
+            key: product.name.en,
             name: {
-                "en": product.productName,
-                "de": product.productName
+                "en": product.name.en,
+                "de": product.name.de
             },
             productType: {
                 typeId: "product-type",
-                key: product.productType
+                key: "main"
             },
             slug: {
                 "en": product.name.en,
                 "de": product.name.de
             },
             masterVariant: {
-                sku: product.masterVariant.sku,
-                key: product.masterVariant.key,
+                sku: "PI"+product.masterVariant.sku,
+                key: "PI"+product.masterVariant.key,
                 prices: [
                     {
                         value: {
@@ -69,6 +78,15 @@ const createResourceDraft = async () => {
         };
         resources.push(resource);
     })
-    console.log(JSON.stringify(resources, 0, 2));
     return resources;
+}
+
+export const importSummary = (key) => {
+    return importApiRoot
+    .withProjectKeyValue({projectKey})
+    .importContainers()
+    .withImportContainerKeyValue({key})
+    .importSummaries()
+    .get()
+    .execute();
 }
