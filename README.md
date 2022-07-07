@@ -1,5 +1,16 @@
 ## Commercetools training examples
 
+# Introduction
+This repository contains several examples on how to use Javascript SDK V2 to interact with commercetools.
+
+# Steps to run locally
+
+* Clone this repo
+* Run ``` npm install ```
+* Create ``` .env ``` file from ```.env.sample```
+* Create api client in merchant center with admin access and provide credentials in ``` .env ```
+* To run examples check the scripts section in ```package.json``` and run ```npm run script```, or run directly ```node examples/filename.js```
+* Some code blocks are commented, uncomment them to try and check.
 # Course Contents
 * Getting to know commercetools
 * Organizations and projects
