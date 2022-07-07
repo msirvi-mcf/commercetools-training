@@ -2,8 +2,8 @@
 
 # Introduction
 This repository contains several examples on how to use Javascript SDK V2 to interact with commercetools.
-node version: v16.15.1
-npm version: 8.11.0
+- node version: v16.15.1
+- npm version: 8.11.0
 # Steps to run locally
 
 * Clone this repo
