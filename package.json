@@ -6,6 +6,10 @@
   "scripts": {
     "projectDetail": "node ./examples/projectDetail.js",
     "logexample":"node ./examples/logging.js",
+    "checkout": "node ./examples/checkoutFlow.js",
+    "importproducts": "node ./examples/importProducts.js",
+    "search": "node ./examples/searchResultPagination.js",
+    "crud": "node ./examples/crud.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

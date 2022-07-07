@@ -76,7 +76,7 @@ This repository contains several examples on how to use Javascript SDK V2 to int
 
 * Deployment approaches and tradeoffs
 
-* Logging, error handling, performance considerations
+* Logging, error handling, performance considerations :white_check_mark:
 
 * The MACH initiative
 
