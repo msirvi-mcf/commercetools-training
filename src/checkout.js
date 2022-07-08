@@ -146,7 +146,7 @@ export const changeOrderState = async (orderId, stateName) => {
         return apiRoot
             .withProjectKey({ projectKey })
             .orders()
-            .withId({ orderId })
+            .withId({ ID: orderId })
             .post({
                 body: {
                     version: order.body.version,
