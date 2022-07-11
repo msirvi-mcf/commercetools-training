@@ -10,6 +10,7 @@
     "importproducts": "node ./examples/importProducts.js",
     "search": "node ./examples/searchResultPagination.js",
     "crud": "node ./examples/crud.js",
+    "stateworkflow": "node ./examples/orderStateWorkflow.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

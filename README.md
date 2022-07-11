@@ -44,7 +44,7 @@ This repository contains several examples on how to use Javascript SDK V2 to int
 
 * Checkout and order creation :white_check_mark:
 
-* Channels, inventory information and state machines for implementation of business requirements and workflows
+* Channels, inventory information and state machines for implementation of business requirements and workflows :white_check_mark:
 
 * Product and cart discounts :white_check_mark:
 
